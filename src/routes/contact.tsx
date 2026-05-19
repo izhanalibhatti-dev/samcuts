@@ -49,8 +49,8 @@ function ContactPage() {
             Get in <span className="gradient-gold-text italic">Touch</span>
           </h1>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
-            Walk in for a fresh cut or call ahead to book over phone at our Burnley shop on
-            Colne Road.
+            Walk in for a fresh cut or call ahead to book over phone at our Burnley shop on Colne
+            Road.
           </p>
         </motion.div>
       </section>
@@ -68,7 +68,8 @@ function ContactPage() {
           <div className="premium-panel px-8 py-6">
             <div className="text-[10px] uppercase tracking-[0.36em] text-gold">How To Reach Us</div>
             <p className="mt-4 text-base md:text-lg leading-relaxed text-muted-foreground max-w-3xl">
-              We keep it direct. Use the phone for bookings and wait checks, use Maps for directions, and use Facebook for updates and shop posts.
+              We keep it direct. Use the phone for bookings and wait checks, use Maps for
+              directions, and use Facebook for updates and shop posts.
             </p>
           </div>
           <div className="premium-panel px-8 py-6">
@@ -98,10 +99,10 @@ function ContactPage() {
             <Phone className="text-gold mb-6" size={28} strokeWidth={1.2} />
             <h2 className="font-display text-2xl mb-3">Call the Shop</h2>
             <div className="gold-divider mb-4" />
-            <p className="text-muted-foreground text-sm mb-3">
-              Walk-ins and bookings, over phone.
+            <p className="text-muted-foreground text-sm mb-3">Walk-ins and bookings, over phone.</p>
+            <p className="font-display text-2xl text-gold group-hover:gradient-gold-text">
+              07413 536353
             </p>
-            <p className="font-display text-2xl text-gold group-hover:gradient-gold-text">07413 536353</p>
           </motion.a>
 
           <motion.a
@@ -116,8 +117,12 @@ function ContactPage() {
             <Facebook className="text-gold mb-6" size={28} strokeWidth={1.2} />
             <h2 className="font-display text-2xl mb-3">Facebook</h2>
             <div className="gold-divider mb-4" />
-            <p className="text-muted-foreground text-sm mb-3">See updates, shop posts, and contact details.</p>
-            <p className="font-display text-2xl text-gold group-hover:gradient-gold-text">Sam's Cuts</p>
+            <p className="text-muted-foreground text-sm mb-3">
+              See updates, shop posts, and contact details.
+            </p>
+            <p className="font-display text-2xl text-gold group-hover:gradient-gold-text">
+              Sam's Cuts
+            </p>
           </motion.a>
 
           <motion.a
@@ -133,7 +138,11 @@ function ContactPage() {
             <h2 className="font-display text-2xl mb-3">Visit</h2>
             <div className="gold-divider mb-4" />
             <p className="text-muted-foreground leading-relaxed">
-              286 Colne Rd<br />Burnley<br />BB10 1DZ
+              286 Colne Rd
+              <br />
+              Burnley
+              <br />
+              BB10 1DZ
             </p>
             <p className="mt-4 text-xs uppercase tracking-[0.24em] text-gold group-hover:tracking-[0.28em] transition-all">
               Open in Google Maps
@@ -150,9 +159,18 @@ function ContactPage() {
             <h2 className="font-display text-2xl mb-3">Hours</h2>
             <div className="gold-divider mb-4" />
             <ul className="text-muted-foreground space-y-2">
-              <li className="flex justify-between"><span>Tuesday to Friday</span><span>9:00 to 18:00</span></li>
-              <li className="flex justify-between"><span>Saturday</span><span>9:00 to 17:00</span></li>
-              <li className="flex justify-between"><span>Sunday &amp; Monday</span><span className="text-gold/80">Closed</span></li>
+              <li className="flex justify-between">
+                <span>Tuesday to Friday</span>
+                <span>9:00 to 18:00</span>
+              </li>
+              <li className="flex justify-between">
+                <span>Saturday</span>
+                <span>9:00 to 17:00</span>
+              </li>
+              <li className="flex justify-between">
+                <span>Sunday &amp; Monday</span>
+                <span className="text-gold/80">Closed</span>
+              </li>
             </ul>
           </motion.div>
         </motion.div>
@@ -168,8 +186,8 @@ function ContactPage() {
             Walk in. Sit down. <span className="gradient-gold-text italic">Walk out sharp.</span>
           </h3>
           <p className="text-muted-foreground">
-            We keep things simple at Sam's Cuts. Walk in when it suits you, or call ahead to
-            book over phone.
+            We keep things simple at Sam's Cuts. Walk in when it suits you, or call ahead to book
+            over phone.
           </p>
         </motion.div>
       </section>

@@ -94,8 +94,8 @@ function ServicesPage() {
             Barber Services in <span className="gradient-gold-text italic">Burnley</span>
           </h1>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
-            Every service at Sam's Cuts is performed with the same standard. Precision,
-            consistency and respect for the craft. Walk in today or call to book over phone.
+            Every service at Sam's Cuts is performed with the same standard. Precision, consistency
+            and respect for the craft. Walk in today or call to book over phone.
           </p>
         </motion.div>
       </section>
@@ -113,15 +113,25 @@ function ServicesPage() {
           <div className="premium-panel px-8 py-6">
             <div className="text-[10px] uppercase tracking-[0.34em] text-gold">How We Work</div>
             <p className="mt-4 text-base md:text-lg leading-relaxed text-muted-foreground max-w-3xl">
-              Consultation first, clean execution second, final mirror check last. Every service is designed to feel straightforward, sharp, and worth coming back for.
+              Consultation first, clean execution second, final mirror check last. Every service is
+              designed to feel straightforward, sharp, and worth coming back for.
             </p>
           </div>
           <div className="premium-panel px-8 py-6">
             <div className="text-[10px] uppercase tracking-[0.34em] text-gold">Quick View</div>
             <div className="mt-4 space-y-3 text-sm text-muted-foreground">
-              <div className="flex justify-between"><span>Walk-ins</span><span className="text-gold">Welcome</span></div>
-              <div className="flex justify-between"><span>Phone bookings</span><span className="text-gold">Available</span></div>
-              <div className="flex justify-between"><span>From</span><span className="text-gold">£10</span></div>
+              <div className="flex justify-between">
+                <span>Walk-ins</span>
+                <span className="text-gold">Welcome</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Phone bookings</span>
+                <span className="text-gold">Available</span>
+              </div>
+              <div className="flex justify-between">
+                <span>From</span>
+                <span className="text-gold">£10</span>
+              </div>
             </div>
           </div>
         </div>

@@ -17,17 +17,27 @@ export function Footer() {
           className="footer-panel px-8 py-8 md:px-10 md:py-10"
         >
           <img src={logo} alt="Sam's Cuts logo" className="h-14 w-auto mb-5" />
-          <div className="mb-4 text-[10px] uppercase tracking-[0.38em] text-gold">Burnley Barber Shop</div>
+          <div className="mb-4 text-[10px] uppercase tracking-[0.38em] text-gold">
+            Burnley Barber Shop
+          </div>
           <h3 className="font-display text-4xl leading-[0.98] text-foreground max-w-lg">
             Built for sharp finishes, calm service, and proper local standards.
           </h3>
           <p className="mt-5 text-sm text-muted-foreground max-w-xl leading-relaxed">
-            Sam&apos;s Cuts is a Burnley barbershop focused on clean fades, strong shapes, and a better chair-side experience. Walk in when it suits you or call ahead to book over phone.
+            Sam&apos;s Cuts is a Burnley barbershop focused on clean fades, strong shapes, and a
+            better chair-side experience. Walk in when it suits you or call ahead to book over
+            phone.
           </p>
           <div className="mt-8 flex flex-wrap gap-3 text-[10px] uppercase tracking-[0.3em] text-gold">
-            <span className="rounded-full border border-gold/25 bg-gold/6 px-4 py-2">Walk-Ins Welcome</span>
-            <span className="rounded-full border border-gold/25 bg-gold/6 px-4 py-2">Phone Bookings</span>
-            <span className="rounded-full border border-gold/25 bg-gold/6 px-4 py-2">Burnley Based</span>
+            <span className="rounded-full border border-gold/25 bg-gold/6 px-4 py-2">
+              Walk-Ins Welcome
+            </span>
+            <span className="rounded-full border border-gold/25 bg-gold/6 px-4 py-2">
+              Phone Bookings
+            </span>
+            <span className="rounded-full border border-gold/25 bg-gold/6 px-4 py-2">
+              Burnley Based
+            </span>
           </div>
           <div className="mt-8 flex flex-wrap gap-4">
             <a
@@ -58,23 +68,45 @@ export function Footer() {
           <ul className="space-y-5 text-sm text-muted-foreground">
             <li className="flex items-start gap-3">
               <MapPin size={15} className="mt-1 text-gold shrink-0" />
-              <span>286 Colne Rd<br />Burnley BB10 1DZ</span>
+              <span>
+                286 Colne Rd
+                <br />
+                Burnley BB10 1DZ
+              </span>
             </li>
             <li className="flex items-center gap-3">
               <Phone size={15} className="text-gold shrink-0" />
-              <a href="tel:+447413536353" className="hover:text-gold transition-colors">07413 536353</a>
+              <a href="tel:+447413536353" className="hover:text-gold transition-colors">
+                07413 536353
+              </a>
             </li>
             <li className="flex items-start gap-3">
               <Clock3 size={15} className="mt-1 text-gold shrink-0" />
               <div className="space-y-1">
-                <div className="flex justify-between gap-4"><span>Tue to Fri</span><span>9 to 6</span></div>
-                <div className="flex justify-between gap-4"><span>Saturday</span><span>9 to 5</span></div>
-                <div className="flex justify-between gap-4"><span>Sun &amp; Mon</span><span className="text-gold/80">Closed</span></div>
+                <div className="flex justify-between gap-4">
+                  <span>Tue to Fri</span>
+                  <span>9 to 6</span>
+                </div>
+                <div className="flex justify-between gap-4">
+                  <span>Saturday</span>
+                  <span>9 to 5</span>
+                </div>
+                <div className="flex justify-between gap-4">
+                  <span>Sun &amp; Mon</span>
+                  <span className="text-gold/80">Closed</span>
+                </div>
               </div>
             </li>
             <li className="flex items-center gap-3">
               <Facebook size={15} className="text-gold shrink-0" />
-              <a href="https://www.facebook.com/p/Sams-Cuts-61552116857669/" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors">Sam&apos;s Cuts on Facebook</a>
+              <a
+                href="https://www.facebook.com/p/Sams-Cuts-61552116857669/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-gold transition-colors"
+              >
+                Sam&apos;s Cuts on Facebook
+              </a>
             </li>
           </ul>
         </motion.div>
@@ -95,7 +127,10 @@ export function Footer() {
               { to: "/contact", label: "Contact" },
             ].map((l) => (
               <li key={l.to}>
-                <Link to={l.to} className="inline-flex items-center gap-2 text-muted-foreground hover:text-gold transition-colors">
+                <Link
+                  to={l.to}
+                  className="inline-flex items-center gap-2 text-muted-foreground hover:text-gold transition-colors"
+                >
                   <span className="h-px w-5 bg-gold/40" />
                   {l.label}
                 </Link>

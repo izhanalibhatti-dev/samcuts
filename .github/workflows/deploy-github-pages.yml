@@ -37,8 +37,12 @@ jobs:
         run: npm run build:github-pages
 
       - name: Add custom domain
-        if: vars.CUSTOM_DOMAIN != ''
-        run: echo "${{ vars.CUSTOM_DOMAIN }}" > dist/github-pages/CNAME
+        run: |
+          if [ -f CNAME ]; then
+            cp CNAME dist/github-pages/CNAME
+          elif [ -n "${{ vars.CUSTOM_DOMAIN }}" ]; then
+            echo "${{ vars.CUSTOM_DOMAIN }}" > dist/github-pages/CNAME
+          fi
 
       - name: Add SPA fallback
         run: |
