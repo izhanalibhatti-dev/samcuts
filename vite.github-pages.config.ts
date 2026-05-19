@@ -1,0 +1,22 @@
+import { tanstackRouter } from "@tanstack/router-plugin/vite";
+import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
+import tsConfigPaths from "vite-tsconfig-paths";
+import { defineConfig } from "vite";
+
+export default defineConfig({
+  base: process.env.GITHUB_PAGES_BASE ?? "/",
+  plugins: [
+    tanstackRouter({
+      target: "react",
+      autoCodeSplitting: true,
+    }),
+    react(),
+    tailwindcss(),
+    tsConfigPaths(),
+  ],
+  build: {
+    outDir: "dist/github-pages",
+    emptyOutDir: true,
+  },
+});
