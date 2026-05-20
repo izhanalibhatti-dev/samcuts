@@ -25,24 +25,26 @@ export function Header() {
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as const }}
       className="fixed top-0 left-0 right-0 z-50 border-b border-border/80 bg-background/72 backdrop-blur-xl"
     >
-      <div className="max-w-7xl mx-auto px-4 lg:px-6 h-20 flex items-center justify-between gap-5 lg:gap-8">
-        <Link to="/" className="flex items-center gap-3 group">
+      <div className="max-w-7xl mx-auto px-4 lg:px-6 h-20 flex items-center justify-between gap-4 lg:gap-6">
+        <Link to="/" className="flex shrink-0 items-center gap-3 group">
           <motion.img
             src={logo}
             alt="Sam's Cuts barber shop logo Burnley"
-            className="h-12 w-12 object-contain shrink-0"
+            className="h-9 w-auto object-contain shrink-0 lg:h-10"
             whileHover={{ rotate: [0, -4, 4, 0], scale: 1.05 }}
             transition={{ duration: 0.6 }}
           />
           <span className="hidden leading-none sm:block">
-            <span className="block font-display text-xl text-foreground">Sam's Cuts</span>
-            <span className="mt-1 block text-[9px] uppercase tracking-[0.28em] text-gold">
+            <span className="block whitespace-nowrap font-display text-2xl leading-[0.9] text-foreground lg:text-3xl">
+              Sam&apos;s Cuts
+            </span>
+            <span className="mt-2 block whitespace-nowrap text-[8px] font-medium uppercase tracking-[0.34em] text-gold lg:text-[9px] lg:tracking-[0.45em]">
               Burnley Barber
             </span>
           </span>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-10 rounded-full border border-border/80 bg-background/70 px-8 py-3 shadow-soft">
+        <nav className="hidden md:flex items-center gap-6 rounded-full border border-border/80 bg-background/70 px-6 py-3 shadow-soft lg:gap-10 lg:px-8">
           {links.map((l, i) => {
             const isActive = pathname === l.to;
 
@@ -80,7 +82,7 @@ export function Header() {
             href="tel:+447413536353"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
-            className="hidden md:inline-flex items-center gap-2 rounded-full border border-gold/80 bg-gold/6 px-5 py-3 text-xs uppercase tracking-[0.22em] text-gold hover:bg-gold hover:text-background transition-colors"
+            className="hidden shrink-0 whitespace-nowrap md:inline-flex items-center gap-2 rounded-full border border-gold/80 bg-gold/6 px-5 py-3 text-xs uppercase tracking-[0.22em] text-gold hover:bg-gold hover:text-background transition-colors"
           >
             <Phone size={14} /> Call To Book
           </motion.a>

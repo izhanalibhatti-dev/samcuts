@@ -13,7 +13,7 @@ export function Layout({ children }: { children: ReactNode }) {
         className="fixed inset-x-4 bottom-4 z-40 inline-flex items-center justify-center gap-3 rounded-full border border-gold bg-background/95 px-6 py-4 text-[11px] font-medium uppercase tracking-[0.22em] text-gold shadow-gold backdrop-blur-sm md:hidden"
       >
         <Phone size={16} />
-        Walk-ins & bookings over phone
+        Walk-ins welcome. Pre-book +£5
       </a>
       <Footer />
     </div>

@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion, type Variants } from "framer-motion";
 import { Layout } from "@/components/Layout";
-import { ArrowRight, Scissors, Sparkles, Award, Wand2 } from "lucide-react";
+import { ArrowRight, Scissors, Sparkles, Award, Wand2, Palette, Smile } from "lucide-react";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -10,13 +10,13 @@ export const Route = createFileRoute("/services")({
       {
         name: "description",
         content:
-          "Men's haircuts, skin fades, beard trims and full grooming in Burnley. Sharp, consistent barber services at Sam's Cuts on Colne Rd.",
+          "Skin fades, normal fades, beard work, shaves, colouring, threading and facials in Burnley. Sharp, consistent barber services at Sam's Cuts on Colne Rd.",
       },
       { property: "og:title", content: "Barber Services in Burnley, Sam's Cuts" },
       {
         property: "og:description",
         content:
-          "Skin fades, men's haircuts, beard trims and full grooming. Premium barber services in Burnley.",
+          "Skin fades, normal fades, beard work, shaves, colouring, threading and facials. Premium barber services in Burnley.",
       },
     ],
   }),
@@ -26,45 +26,59 @@ export const Route = createFileRoute("/services")({
 const services = [
   {
     icon: Scissors,
-    name: "Men's Haircut",
-    price: "£15",
+    name: "Normal Fade",
+    price: "£9",
     tag: "Everyday sharp",
-    desc: "Precision men's haircuts in Burnley. Consultation, cut, style and finish, tailored to your face shape and how you wear your hair day to day.",
+    desc: "Clean normal fade finished with care. A straightforward everyday cut for a sharp, tidy look.",
   },
   {
     icon: Sparkles,
     name: "Skin Fade",
-    price: "£18",
+    price: "£10",
     tag: "Most requested",
-    desc: "Our signature service. Skin fade haircuts in Burnley delivered with seamless blends, from a tight skin fade to a soft taper. Every gradient is sharp.",
+    desc: "Our signature skin fade with a close, clean blend and sharp finish. Add a shave or beard line-up for £5 extra.",
   },
   {
     icon: Award,
-    name: "Beard Trim",
+    name: "Beard",
     price: "£10",
     tag: "Clean finish",
-    desc: "Expert beard trims in Burnley. Shaped, lined and finished with care so the beard frames the cut and suits the jaw.",
+    desc: "Beard shaping, tidy-up and line work to keep the beard balanced with your haircut.",
   },
   {
     icon: Wand2,
-    name: "Cut & Beard",
-    price: "£23",
-    tag: "Popular combo",
-    desc: "Full haircut paired with a tailored beard trim. The most popular package at Sam's Cuts for men in Burnley.",
+    name: "Shave",
+    price: "£10",
+    tag: "Smooth finish",
+    desc: "A clean shave service for a fresh finish, with careful detailing around the edges.",
   },
   {
-    icon: Sparkles,
-    name: "Hot Towel Shave",
-    price: "£20",
-    tag: "Traditional ritual",
-    desc: "Traditional hot towel straight razor shave. A proper barber experience in Burnley. Slow, precise and finished with balm.",
+    icon: Palette,
+    name: "Colouring",
+    price: "£15",
+    tag: "Colour work",
+    desc: "Hair colouring service for a stronger style change or refresh. Final result depends on hair length and colour choice.",
   },
   {
     icon: Award,
-    name: "Full Grooming",
-    price: "£35",
-    tag: "Complete service",
-    desc: "Cut, beard work and hot towel finish in one sitting. The complete grooming session at our Burnley barber shop.",
+    name: "Threading",
+    price: "£5",
+    tag: "Quick tidy",
+    desc: "Threading for clean, precise detail work around brows and facial hair edges.",
+  },
+  {
+    icon: Smile,
+    name: "Facial",
+    price: "£20",
+    tag: "Fresh face",
+    desc: "A refreshing facial treatment to clean, revive and finish your grooming session.",
+  },
+  {
+    icon: Sparkles,
+    name: "Skin Fade + Shave",
+    price: "£15",
+    tag: "Best offer",
+    desc: "Skin fade with a shave or beard tidy added on for £5 extra. A sharp combo at a simple price.",
   },
 ];
 
@@ -95,7 +109,7 @@ function ServicesPage() {
           </h1>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
             Every service at Sam's Cuts is performed with the same standard. Precision, consistency
-            and respect for the craft. Walk in today or call to book over phone.
+            and respect for the craft. Walk in today or call to pre-book over phone for an extra £5.
           </p>
         </motion.div>
       </section>
@@ -126,11 +140,15 @@ function ServicesPage() {
               </div>
               <div className="flex justify-between">
                 <span>Phone bookings</span>
-                <span className="text-gold">Available</span>
+                <span className="text-gold">+£5</span>
               </div>
               <div className="flex justify-between">
                 <span>From</span>
-                <span className="text-gold">£10</span>
+                <span className="text-gold">£5</span>
+              </div>
+              <div className="flex justify-between gap-4">
+                <span>Best offer</span>
+                <span className="text-gold text-right">Skin fade + shave £15</span>
               </div>
             </div>
           </div>
@@ -180,6 +198,7 @@ function ServicesPage() {
             <div className="text-[10px] uppercase tracking-[0.34em] text-gold">Note</div>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
               Prices are a guide. Final price may vary depending on service length and style.
+              Pre-booking over the phone adds an extra £5.
             </p>
             <a
               href="tel:+447413536353"

@@ -25,8 +25,8 @@ export function Footer() {
           </h3>
           <p className="mt-5 text-sm text-muted-foreground max-w-xl leading-relaxed">
             Sam&apos;s Cuts is a Burnley barbershop focused on clean fades, strong shapes, and a
-            better chair-side experience. Walk in when it suits you or call ahead to book over
-            phone.
+            better chair-side experience. Walk in when it suits you or call ahead to pre-book over
+            phone. Phone pre-bookings add £5.
           </p>
           <div className="mt-8 flex flex-wrap gap-3 text-[10px] uppercase tracking-[0.3em] text-gold">
             <span className="rounded-full border border-gold/25 bg-gold/6 px-4 py-2">

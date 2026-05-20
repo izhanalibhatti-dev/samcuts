@@ -11,25 +11,27 @@ import hairImage8725 from "../../Hair Images/IMG_8725.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Sam's Cuts | Best Barber in Burnley | Men's Haircuts & Fades" },
+      { title: "Sam's Cuts | Best Barbers in Burnley | Men's Haircuts & Fades" },
       {
         name: "description",
         content:
-          "Looking for a top barber in Burnley? Sam's Cuts offers clean fades, sharp haircuts, walk-ins, and bookings over phone.",
+          "Looking for the best barbers in Burnley? Sam's Cuts offers clean fades, sharp haircuts, beard work, walk-ins, and phone pre-bookings with a £5 charge.",
       },
-      { property: "og:title", content: "Sam's Cuts | Best Barber in Burnley" },
+      { property: "og:title", content: "Sam's Cuts | Best Barbers in Burnley" },
       {
         property: "og:description",
         content:
-          "Premium men's haircuts, skin fades and beard trims in Burnley. Walk in or call to book over phone.",
+          "Premium men's haircuts, skin fades and beard trims in Burnley. Walk in or call to pre-book over phone for an extra £5.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://samcutsburnley.uk/" },
       {
         name: "keywords",
         content:
-          "barber in Burnley, best barber Burnley, men's haircut Burnley, skin fade Burnley, beard trim Burnley, barbers near me Burnley",
+          "best barbers Burnley, barber in Burnley, best barber Burnley, men's haircut Burnley, skin fade Burnley, beard trim Burnley, barbers near me Burnley",
       },
     ],
+    links: [{ rel: "canonical", href: "https://samcutsburnley.uk/" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -37,11 +39,13 @@ export const Route = createFileRoute("/")({
           "@context": "https://schema.org",
           "@type": "BarberShop",
           name: "Sam's Cuts",
-          image: "https://samscuts.example/og.jpg",
-          "@id": "https://samscuts.example",
-          url: "https://samscuts.example",
+          image: "https://samcutsburnley.uk/favicon.png",
+          logo: "https://samcutsburnley.uk/favicon.png",
+          "@id": "https://samcutsburnley.uk/#barbershop",
+          url: "https://samcutsburnley.uk/",
           telephone: "+447413536353",
-          priceRange: "££",
+          priceRange: "£",
+          sameAs: ["https://www.facebook.com/p/Sams-Cuts-61552116857669/"],
           address: {
             "@type": "PostalAddress",
             streetAddress: "286 Colne Rd",
@@ -50,6 +54,13 @@ export const Route = createFileRoute("/")({
             addressCountry: "GB",
           },
           geo: { "@type": "GeoCoordinates", latitude: 53.7997, longitude: -2.2304 },
+          areaServed: "Burnley",
+          makesOffer: [
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Skin Fade" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Normal Fade" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Beard Trim" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Shave" } },
+          ],
           openingHoursSpecification: [
             {
               "@type": "OpeningHoursSpecification",
@@ -77,31 +88,31 @@ const stagger: Variants = {
 
 const servicePreview = [
   {
-    t: "Haircuts",
-    d: "Sharp men's haircuts in Burnley tailored to your face shape and style.",
+    t: "Normal Fades",
+    d: "Clean everyday fades from £9, finished sharp and tidy.",
     icon: Scissors,
-    accent: "Everyday sharp",
+    accent: "From £9",
     number: "01",
   },
   {
     t: "Skin Fades",
-    d: "Our skin fade haircuts in Burnley are clean, sharp, and tailored to your style.",
+    d: "Close skin fades from £10, with a shave or beard add-on for £5 extra.",
     icon: Sparkles,
-    accent: "Most requested",
+    accent: "From £10",
     number: "02",
   },
   {
-    t: "Beard Trims",
-    d: "Expert beard trims in Burnley. Shaped, lined and finished by hand.",
+    t: "Beard & Shave",
+    d: "Beard shaping and shave services from £10 for a clean finish.",
     icon: Award,
-    accent: "Clean finish",
+    accent: "From £10",
     number: "03",
   },
   {
-    t: "Full Grooming",
-    d: "Complete grooming sessions combining cut, beard and hot-towel finish.",
+    t: "Facial, Colour & Threading",
+    d: "Facials from £20, colouring from £15 and threading from £5.",
     icon: Sparkles,
-    accent: "The full ritual",
+    accent: "From £5",
     number: "04",
   },
 ] as const;
@@ -228,7 +239,7 @@ function HomePage() {
                 <div className="flex flex-wrap gap-3 text-[10px] uppercase tracking-[0.28em] text-gold">
                   <span>Walk-ins welcome</span>
                   <span className="text-muted-foreground">/</span>
-                  <span>Phone bookings</span>
+                  <span>Phone pre-bookings +£5</span>
                   <span className="text-muted-foreground">/</span>
                   <span>Burnley</span>
                 </div>
@@ -246,7 +257,7 @@ function HomePage() {
             "Proper beard work",
             "Burnley based",
             "Walk-ins welcome",
-            "Phone bookings",
+            "Phone pre-bookings +£5",
           ].map((item) => (
             <span key={item} className="inline-flex items-center gap-3">
               <span className="h-1.5 w-1.5 rounded-full bg-gold/70" />
@@ -412,8 +423,8 @@ function HomePage() {
               }
               align="center"
             >
-              From precision skin fades to traditional beard work. Every service performed with the
-              same standard of care.
+              From skin fades and normal fades to beard work, shaves, colouring, threading and
+              facials. Every service is finished with the same standard of care.
             </SectionHeading>
           </motion.div>
 
@@ -599,7 +610,7 @@ function HomePage() {
               <Sparkles className="text-gold mb-4" size={24} />
               <h3 className="font-display text-xl mb-2">Walk-Ins & Bookings</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Walk in any time, or call ahead if you want to book over phone.
+                Walk in any time, or call ahead to pre-book over phone for an extra £5.
               </p>
             </motion.div>
           </motion.div>
@@ -637,8 +648,8 @@ function HomePage() {
                   </div>
                 </div>
                 <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                  Sam's Cuts, 286 Colne Rd, Burnley BB10 1DZ. Walk in, or call ahead to book over
-                  phone.
+                  Sam's Cuts, 286 Colne Rd, Burnley BB10 1DZ. Walk in, or call ahead to pre-book
+                  over phone for an extra £5.
                 </p>
               </div>
               <div className="absolute bottom-5 left-5 right-5 flex flex-wrap gap-3 md:bottom-8 md:left-8">
@@ -679,7 +690,7 @@ function HomePage() {
                   {
                     k: "02",
                     t: "Call ahead",
-                    d: "Use the phone line if you want to check the wait or book in.",
+                    d: "Use the phone line if you want to check the wait or pre-book. Phone pre-bookings add £5.",
                   },
                   {
                     k: "03",
@@ -704,7 +715,7 @@ function HomePage() {
                 07413 536353
               </a>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                Walk-ins and bookings are handled over phone. Quick, direct, and simple.
+                Walk-ins are welcome. Phone pre-bookings are available with an extra £5 charge.
               </p>
             </div>
           </div>

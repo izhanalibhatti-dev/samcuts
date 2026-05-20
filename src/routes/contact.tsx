@@ -49,8 +49,8 @@ function ContactPage() {
             Get in <span className="gradient-gold-text italic">Touch</span>
           </h1>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
-            Walk in for a fresh cut or call ahead to book over phone at our Burnley shop on Colne
-            Road.
+            Walk in for a fresh cut or call ahead to pre-book over phone at our Burnley shop on
+            Colne Road. Phone pre-bookings include an extra £5 charge.
           </p>
         </motion.div>
       </section>
@@ -68,8 +68,8 @@ function ContactPage() {
           <div className="premium-panel px-8 py-6">
             <div className="text-[10px] uppercase tracking-[0.36em] text-gold">How To Reach Us</div>
             <p className="mt-4 text-base md:text-lg leading-relaxed text-muted-foreground max-w-3xl">
-              We keep it direct. Use the phone for bookings and wait checks, use Maps for
-              directions, and use Facebook for updates and shop posts.
+              We keep it direct. Use the phone for wait checks and pre-bookings, use Maps for
+              directions, and use Facebook for updates and shop posts. Phone pre-bookings add £5.
             </p>
           </div>
           <div className="premium-panel px-8 py-6">
@@ -99,7 +99,9 @@ function ContactPage() {
             <Phone className="text-gold mb-6" size={28} strokeWidth={1.2} />
             <h2 className="font-display text-2xl mb-3">Call the Shop</h2>
             <div className="gold-divider mb-4" />
-            <p className="text-muted-foreground text-sm mb-3">Walk-ins and bookings, over phone.</p>
+            <p className="text-muted-foreground text-sm mb-3">
+              Walk-ins welcome. Phone pre-bookings add £5.
+            </p>
             <p className="font-display text-2xl text-gold group-hover:gradient-gold-text">
               07413 536353
             </p>
@@ -186,8 +188,8 @@ function ContactPage() {
             Walk in. Sit down. <span className="gradient-gold-text italic">Walk out sharp.</span>
           </h3>
           <p className="text-muted-foreground">
-            We keep things simple at Sam's Cuts. Walk in when it suits you, or call ahead to book
-            over phone.
+            We keep things simple at Sam's Cuts. Walk in when it suits you, or call ahead to
+            pre-book over phone for an extra £5.
           </p>
         </motion.div>
       </section>

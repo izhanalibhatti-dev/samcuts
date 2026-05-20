@@ -41,14 +41,16 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Sam's Cuts | Best Barber in Burnley | Men's Haircuts & Fades" },
+      { title: "Sam's Cuts | Best Barbers in Burnley | Men's Haircuts & Fades" },
       {
         name: "description",
         content:
-          "Looking for a top barber in Burnley? Sam's Cuts offers clean fades, sharp haircuts, and expert grooming. Walk in today.",
+          "Looking for the best barbers in Burnley? Sam's Cuts offers clean fades, sharp haircuts, beard work, shaves and grooming. Walk in today.",
       },
       { name: "author", content: "Sam's Cuts Burnley" },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Sam's Cuts Burnley" },
+      { property: "og:url", content: "https://samcutsburnley.uk/" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
