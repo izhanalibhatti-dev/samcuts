@@ -2,7 +2,17 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, type Variants } from "framer-motion";
 import { Layout } from "@/components/Layout";
 import { SectionHeading } from "@/components/SectionHeading";
-import { ArrowRight, Phone, Scissors, Sparkles, Award, MapPin } from "lucide-react";
+import {
+  ArrowRight,
+  Phone,
+  Scissors,
+  Sparkles,
+  Award,
+  MapPin,
+  Star,
+  MessageSquareText,
+  ExternalLink,
+} from "lucide-react";
 import hairImage8721 from "../../Hair Images/IMG_8721.jpg";
 import hairImage8722 from "../../Hair Images/IMG_8722.jpg";
 import hairImage8724 from "../../Hair Images/IMG_8724.jpg";
@@ -114,6 +124,27 @@ const servicePreview = [
     icon: Sparkles,
     accent: "From £5",
     number: "04",
+  },
+] as const;
+
+const googleMapsUrl =
+  "https://www.google.com/maps/search/?api=1&query=Sam%27s%20Cuts%2C%20286%20Colne%20Rd%2C%20Burnley%20BB10%201DZ";
+
+const googleReviews = [
+  {
+    name: "Izhan Bhatti",
+    initial: "I",
+    text: "Overall, a great place for a quality haircut at a good price.",
+  },
+  {
+    name: "M. Ahmed",
+    initial: "M",
+    text: "Nice haircut, blended fade and perfect amount of hair cut off.",
+  },
+  {
+    name: "J. Khan",
+    initial: "J",
+    text: "An expert barber in town who works with precision and attention to detail.",
   },
 ] as const;
 
@@ -554,6 +585,127 @@ function HomePage() {
         </div>
       </section>
 
+      {/* REVIEWS */}
+      <section className="section-orbit overflow-hidden px-6 py-28 lg:px-10">
+        <div className="mx-auto max-w-7xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="grid items-end gap-8 lg:grid-cols-[0.95fr_1.05fr]"
+          >
+            <SectionHeading
+              eyebrow="Google Reviews"
+              title={
+                <>
+                  Loved your cut? Help more people{" "}
+                  <span className="gradient-gold-text italic">find Sam's Cuts</span>
+                </>
+              }
+            >
+              Sam's Cuts is rated 5.0 on Google. If your trim, fade, or beard work came out sharp, a
+              quick review helps the next Burnley customer choose with confidence.
+            </SectionHeading>
+
+            <div className="premium-panel p-6 sm:p-8">
+              <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <span className="text-2xl font-semibold tracking-tight text-foreground">
+                      Google
+                    </span>
+                    <span className="rounded-full border border-gold/30 bg-gold/10 px-3 py-1 text-[10px] uppercase tracking-[0.24em] text-gold">
+                      Excellent
+                    </span>
+                  </div>
+                  <div className="mt-4 flex flex-wrap items-center gap-3">
+                    <span className="font-display text-5xl leading-none text-foreground">5.0</span>
+                    <span className="flex text-gold" aria-label="5 star rating">
+                      {Array.from({ length: 5 }).map((_, index) => (
+                        <Star key={index} size={22} fill="currentColor" strokeWidth={1.4} />
+                      ))}
+                    </span>
+                    <span className="text-sm text-muted-foreground">11 Google reviews</span>
+                  </div>
+                </div>
+
+                <motion.a
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.97 }}
+                  href={googleMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex shrink-0 items-center justify-center gap-3 rounded-full bg-gold px-6 py-4 text-[10px] font-medium uppercase tracking-[0.22em] text-background shadow-gold transition-colors hover:bg-gold-bright"
+                >
+                  Write A Google Review
+                  <ExternalLink size={14} />
+                </motion.a>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            className="mt-10 grid gap-5 md:grid-cols-3"
+          >
+            {googleReviews.map((review) => (
+              <motion.article
+                key={review.name}
+                variants={fadeUp}
+                whileHover={{ y: -6 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className="premium-panel p-7"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex items-center gap-4">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-full border border-gold/30 bg-gold/12 font-display text-xl text-gold">
+                      {review.initial}
+                    </span>
+                    <div>
+                      <h3 className="font-display text-xl leading-tight text-foreground">
+                        {review.name}
+                      </h3>
+                      <p className="mt-1 text-xs text-muted-foreground">Google review</p>
+                    </div>
+                  </div>
+                  <MessageSquareText className="text-gold/70" size={22} strokeWidth={1.4} />
+                </div>
+
+                <div className="mt-6 flex text-gold" aria-hidden="true">
+                  {Array.from({ length: 5 }).map((_, index) => (
+                    <Star key={index} size={18} fill="currentColor" strokeWidth={1.3} />
+                  ))}
+                </div>
+                <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
+                  &ldquo;{review.text}&rdquo;
+                </p>
+              </motion.article>
+            ))}
+          </motion.div>
+
+          <div className="mt-8 grid gap-4 lg:grid-cols-[0.72fr_1.28fr]">
+            <div className="pole-badge pl-9 pr-7 py-7">
+              <div className="text-[10px] uppercase tracking-[0.36em] text-gold">Quick Ask</div>
+              <p className="mt-4 font-display text-3xl leading-[1.08] text-foreground">
+                Fresh cut?
+                <br />
+                Leave five stars.
+              </p>
+            </div>
+            <div className="premium-panel px-8 py-7">
+              <p className="text-base leading-relaxed text-muted-foreground">
+                Reviews only take a minute and make a real difference for a local Burnley barber.
+                Tap the button, find Sam's Cuts on Google, and share what you liked about your cut.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* LOCATION */}
       <section id="location" className="py-28 px-6 lg:px-10 bg-charcoal/30 grain">
         <div className="max-w-7xl mx-auto">
@@ -654,7 +806,7 @@ function HomePage() {
               </div>
               <div className="absolute bottom-5 left-5 right-5 flex flex-wrap gap-3 md:bottom-8 md:left-8">
                 <a
-                  href="https://www.google.com/maps/search/?api=1&query=Sam%27s%20Cuts%2C%20286%20Colne%20Rd%2C%20Burnley%20BB10%201DZ"
+                  href={googleMapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 bg-gold px-5 py-3 text-[10px] font-medium uppercase tracking-[0.22em] text-background transition-colors hover:bg-gold-bright"
