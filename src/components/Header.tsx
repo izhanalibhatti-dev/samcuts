@@ -84,7 +84,7 @@ export function Header() {
 
       <>
         {open && (
-          <div className="md:hidden border-t border-border bg-background/98 overflow-hidden shadow-soft">
+          <div className="menu-in md:hidden border-t border-border bg-background/98 overflow-hidden shadow-soft">
             <nav className="flex flex-col px-6 py-6 gap-5">
               {links.map((l) => {
                 const isActive = pathname === l.to;

@@ -376,6 +376,8 @@
   }
   .section-orbit {
     position: relative;
+    /* Keep the decorative circles from widening the page on phones. */
+    overflow-x: clip;
   }
   .section-orbit::before,
   .section-orbit::after {
@@ -526,7 +528,72 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce), (max-width: 767px) {
+/* Motion: short, CSS-only tweens so the site feels responsive without lag. */
+:root {
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@layer base {
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
+    transition-property:
+      color, background-color, border-color, box-shadow, opacity, transform, translate, scale;
+    transition-duration: 160ms;
+    transition-timing-function: var(--ease-out);
+  }
+  /* Press feedback: buttons and tiles sink slightly when tapped or clicked. */
+  a:active:not([aria-disabled="true"]),
+  button:active:not(:disabled) {
+    transform: scale(0.97);
+    transition-duration: 90ms;
+  }
+}
+
+/* Quick fade-and-rise when a page opens or you navigate to another page. */
+main {
+  animation: page-in 220ms var(--ease-out) both;
+}
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+/* Mobile menu slides in instead of popping. */
+.menu-in {
+  animation: menu-in 180ms var(--ease-out) both;
+}
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+/* Cards and photos ease in as they scroll into view. Runs on the browser's
+   scroll timeline (no JavaScript); browsers without support just show them. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    main .premium-panel,
+    main .pole-badge,
+    main .photo-depth,
+    main .footer-panel {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 40%;
+    }
+  }
+}
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
