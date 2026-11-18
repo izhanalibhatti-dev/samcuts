@@ -1,5 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { motion, type Variants } from "framer-motion";
 import { Layout } from "@/components/Layout";
 import { SectionHeading } from "@/components/SectionHeading";
 import hairImage8724 from "../../Hair Images/IMG_8724.jpg";
@@ -24,11 +23,6 @@ export const Route = createFileRoute("/about")({
   }),
   component: AboutPage,
 });
-
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const } },
-};
 
 type AboutImageColumn = {
   eyebrow: string;
@@ -76,12 +70,7 @@ function AboutPage() {
   return (
     <Layout>
       <section className="section-orbit py-24 px-6 lg:px-10 grain">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-5xl mx-auto text-center"
-        >
+        <div className="max-w-5xl mx-auto text-center">
           <div className="flex items-center gap-3 mb-6 justify-center">
             <span className="h-px w-10 bg-gold" />
             <span className="text-xs uppercase tracking-[0.4em] text-gold">About Us</span>
@@ -90,7 +79,7 @@ function AboutPage() {
           <h1 className="font-display text-5xl md:text-7xl leading-[0.95] mb-6">
             Your Local <span className="gradient-gold-text italic">Barber</span> in Burnley
           </h1>
-        </motion.div>
+        </div>
       </section>
 
       <section className="section-orbit pb-24 px-6 lg:px-10">
@@ -132,11 +121,7 @@ function AboutImageColumnSection({ column, index }: { column: AboutImageColumn; 
 
   return (
     <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-      <motion.figure
-        initial={{ opacity: 0, x: reverse ? 40 : -40 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.9 }}
+      <figure
         className={[
           "luxury-ring photo-depth relative min-h-[420px] overflow-hidden border border-border bg-card shadow-soft md:min-h-[560px]",
           reverse ? "lg:order-2" : "",
@@ -154,15 +139,9 @@ function AboutImageColumnSection({ column, index }: { column: AboutImageColumn; 
             {column.eyebrow}
           </span>
         </figcaption>
-      </motion.figure>
+      </figure>
 
-      <motion.div
-        initial={{ opacity: 0, x: reverse ? -40 : 40 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.9 }}
-        className={reverse ? "lg:order-1" : ""}
-      >
+      <div className={reverse ? "lg:order-1" : ""}>
         <div className="text-[10px] uppercase tracking-[0.38em] text-gold">{column.eyebrow}</div>
         <h2 className="mt-4 font-display text-4xl leading-[1.02] md:text-5xl">{column.title}</h2>
         <div className="mt-7 space-y-5 text-lg leading-relaxed text-muted-foreground">
@@ -180,26 +159,16 @@ function AboutImageColumnSection({ column, index }: { column: AboutImageColumn; 
         ) : null}
 
         {column.points ? (
-          <motion.div
-            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.12 } } }}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            className="premium-panel mt-8 space-y-6 px-7 py-7"
-          >
+          <div className="premium-panel mt-8 space-y-6 px-7 py-7">
             {column.points.map((point) => (
-              <motion.div
-                key={point.title}
-                variants={fadeUp}
-                className="border-l-2 border-gold pl-5"
-              >
+              <div key={point.title} className="border-l-2 border-gold pl-5">
                 <h3 className="font-display text-xl mb-1">{point.title}</h3>
                 <p className="text-sm text-muted-foreground">{point.description}</p>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         ) : null}
-      </motion.div>
+      </div>
     </div>
   );
 }

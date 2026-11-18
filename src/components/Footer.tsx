@@ -1,5 +1,4 @@
 import { Link } from "@tanstack/react-router";
-import { motion } from "framer-motion";
 import { Clock3, Facebook, Phone, MapPin, ArrowRight } from "lucide-react";
 import logo from "@/assets/logo.png";
 
@@ -9,13 +8,7 @@ export function Footer() {
       <div className="absolute inset-0 grain pointer-events-none" />
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
       <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16 grid lg:grid-cols-[1.3fr_0.95fr_0.75fr] gap-8 relative">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="footer-panel px-8 py-8 md:px-10 md:py-10"
-        >
+        <div className="footer-panel px-8 py-8 md:px-10 md:py-10">
           <img src={logo} alt="Sam's Cuts logo" className="h-14 w-auto mb-5" />
           <div className="mb-4 text-[10px] uppercase tracking-[0.38em] text-gold">
             Burnley Barber Shop
@@ -55,15 +48,9 @@ export function Footer() {
               <ArrowRight size={14} />
             </Link>
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="footer-panel px-7 py-7"
-        >
+        <div className="footer-panel px-7 py-7">
           <h4 className="text-xs uppercase tracking-[0.25em] text-gold mb-5">Visit & Hours</h4>
           <ul className="space-y-5 text-sm text-muted-foreground">
             <li className="flex items-start gap-3">
@@ -109,15 +96,9 @@ export function Footer() {
               </a>
             </li>
           </ul>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="footer-panel px-7 py-7"
-        >
+        <div className="footer-panel px-7 py-7">
           <h4 className="text-xs uppercase tracking-[0.25em] text-gold mb-4">Explore</h4>
           <ul className="space-y-4 text-sm">
             {[
@@ -137,7 +118,7 @@ export function Footer() {
               </li>
             ))}
           </ul>
-        </motion.div>
+        </div>
       </div>
 
       <div className="border-t border-border/80 relative">

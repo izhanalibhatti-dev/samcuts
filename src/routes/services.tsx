@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { motion, type Variants } from "framer-motion";
 import { Layout } from "@/components/Layout";
 import { ArrowRight, Scissors, Sparkles, Award, Wand2, Palette, Smile } from "lucide-react";
 
@@ -82,23 +81,11 @@ const services = [
   },
 ];
 
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const } },
-};
-
-const stagger: Variants = { hidden: {}, show: { transition: { staggerChildren: 0.1 } } };
-
 function ServicesPage() {
   return (
     <Layout>
       <section className="section-orbit py-24 px-6 lg:px-10 grain">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-5xl mx-auto text-center"
-        >
+        <div className="max-w-5xl mx-auto text-center">
           <div className="flex items-center gap-3 mb-6 justify-center">
             <span className="h-px w-10 bg-gold" />
             <span className="text-xs uppercase tracking-[0.4em] text-gold">Services</span>
@@ -111,7 +98,7 @@ function ServicesPage() {
             Every service at Sam's Cuts is performed with the same standard. Precision, consistency
             and respect for the craft. Walk in today or call to pre-book over phone for an extra £5.
           </p>
-        </motion.div>
+        </div>
       </section>
 
       <section className="px-6 lg:px-10 pb-10">
@@ -156,20 +143,11 @@ function ServicesPage() {
       </section>
 
       <section className="section-orbit pb-28 px-6 lg:px-10">
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-80px" }}
-          className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s, index) => (
-            <motion.div
+            <div
               key={s.name}
-              variants={fadeUp}
-              whileHover={{ y: -8 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="group premium-panel p-8 hover:border-gold transition-colors"
+              className="transition group premium-panel p-8 hover:border-gold duration-300 hover:-translate-y-2"
             >
               <div className="barber-stripe absolute inset-y-0 right-0 w-3 opacity-80" />
               <div className="mb-4 font-display text-4xl text-gold/25">
@@ -183,9 +161,9 @@ function ServicesPage() {
               <h2 className="font-display text-2xl mb-3">{s.name}</h2>
               <div className="gold-divider mb-4" />
               <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
         <div className="max-w-5xl mx-auto mt-20 grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
           <div className="footer-panel px-8 py-8">

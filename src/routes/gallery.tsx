@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { motion } from "framer-motion";
 import { Layout } from "@/components/Layout";
 import hairImage8721 from "../../Hair Images/IMG_8721.jpg";
 import hairImage8722 from "../../Hair Images/IMG_8722.jpg";
@@ -70,12 +69,7 @@ function GalleryPage() {
   return (
     <Layout>
       <section className="section-orbit py-24 px-6 lg:px-10 grain">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-5xl mx-auto text-center"
-        >
+        <div className="max-w-5xl mx-auto text-center">
           <div className="flex items-center gap-3 mb-6 justify-center">
             <span className="h-px w-10 bg-gold" />
             <span className="text-xs uppercase tracking-[0.4em] text-gold">Our Work</span>
@@ -88,7 +82,7 @@ function GalleryPage() {
             A look at recent work from the chair. Fades, trims and beard work at our Burnley barber
             shop.
           </p>
-        </motion.div>
+        </div>
       </section>
 
       <section className="px-6 lg:px-10 pb-10">
@@ -123,13 +117,7 @@ function GalleryPage() {
 
       <section className="section-orbit pb-28 px-6 lg:px-10">
         <div className="mx-auto max-w-7xl">
-          <motion.figure
-            initial={{ opacity: 0, y: 34 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.8 }}
-            className="photo-depth group relative mb-6 min-h-[560px] overflow-hidden border border-gold/20 bg-card shadow-soft"
-          >
+          <figure className="photo-depth group relative mb-6 min-h-[560px] overflow-hidden border border-gold/20 bg-card shadow-soft">
             <img
               src={featuredImage.src}
               alt={featuredImage.alt}
@@ -150,16 +138,12 @@ function GalleryPage() {
                 {featuredImage.detail}
               </p>
             </figcaption>
-          </motion.figure>
+          </figure>
 
           <div className="columns-1 gap-6 sm:columns-2 lg:columns-3 [column-fill:_balance]">
             {supportingImages.map((image, i) => (
-              <motion.figure
+              <figure
                 key={image.src}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, delay: (i % 3) * 0.08 }}
                 className="photo-depth group relative mb-6 break-inside-avoid overflow-hidden border border-border bg-card shadow-soft"
                 style={{ height: `${image.height}px` }}
               >
@@ -179,7 +163,7 @@ function GalleryPage() {
                   </p>
                 </figcaption>
                 <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-gold/70 via-transparent to-transparent" />
-              </motion.figure>
+              </figure>
             ))}
           </div>
 

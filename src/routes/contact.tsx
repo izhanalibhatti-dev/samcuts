@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { motion, type Variants } from "framer-motion";
 import { Layout } from "@/components/Layout";
 import { Phone, Facebook, MapPin, Clock } from "lucide-react";
 
@@ -23,23 +22,11 @@ export const Route = createFileRoute("/contact")({
   component: ContactPage,
 });
 
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const } },
-};
-
-const stagger: Variants = { hidden: {}, show: { transition: { staggerChildren: 0.1 } } };
-
 function ContactPage() {
   return (
     <Layout>
       <section className="section-orbit py-24 px-6 lg:px-10 grain">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-5xl mx-auto text-center"
-        >
+        <div className="max-w-5xl mx-auto text-center">
           <div className="flex items-center gap-3 mb-6 justify-center">
             <span className="h-px w-10 bg-gold" />
             <span className="text-xs uppercase tracking-[0.4em] text-gold">Contact</span>
@@ -52,7 +39,7 @@ function ContactPage() {
             Walk in for a fresh cut or call ahead to pre-book over phone at our Burnley shop on
             Colne Road. Phone pre-bookings include an extra £5 charge.
           </p>
-        </motion.div>
+        </div>
       </section>
 
       <section className="px-6 lg:px-10 pb-10">
@@ -82,19 +69,10 @@ function ContactPage() {
       </section>
 
       <section className="section-orbit pb-28 px-6 lg:px-10">
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-80px" }}
-          className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6"
-        >
-          <motion.a
-            variants={fadeUp}
-            whileHover={{ y: -6 }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
+          <a
             href="tel:+447413536353"
-            className="group pole-badge pl-10 pr-10 py-10 hover:border-gold transition-colors"
+            className="transition group pole-badge pl-10 pr-10 py-10 hover:border-gold duration-300 hover:-translate-y-1.5"
           >
             <Phone className="text-gold mb-6" size={28} strokeWidth={1.2} />
             <h2 className="font-display text-2xl mb-3">Call the Shop</h2>
@@ -105,16 +83,13 @@ function ContactPage() {
             <p className="font-display text-2xl text-gold group-hover:gradient-gold-text">
               07413 536353
             </p>
-          </motion.a>
+          </a>
 
-          <motion.a
-            variants={fadeUp}
-            whileHover={{ y: -6 }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+          <a
             href="https://www.facebook.com/p/Sams-Cuts-61552116857669/"
             target="_blank"
             rel="noopener noreferrer"
-            className="group premium-panel p-10 hover:border-gold transition-colors"
+            className="transition group premium-panel p-10 hover:border-gold duration-300 hover:-translate-y-1.5"
           >
             <Facebook className="text-gold mb-6" size={28} strokeWidth={1.2} />
             <h2 className="font-display text-2xl mb-3">Facebook</h2>
@@ -125,16 +100,13 @@ function ContactPage() {
             <p className="font-display text-2xl text-gold group-hover:gradient-gold-text">
               Sam's Cuts
             </p>
-          </motion.a>
+          </a>
 
-          <motion.a
-            variants={fadeUp}
-            whileHover={{ y: -6 }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+          <a
             href="https://www.google.com/maps/search/?api=1&query=Sam%27s%20Cuts%2C%20286%20Colne%20Rd%2C%20Burnley%20BB10%201DZ"
             target="_blank"
             rel="noopener noreferrer"
-            className="group premium-panel p-10 hover:border-gold transition-colors"
+            className="transition group premium-panel p-10 hover:border-gold duration-300 hover:-translate-y-1.5"
           >
             <MapPin className="text-gold mb-6" size={28} strokeWidth={1.2} />
             <h2 className="font-display text-2xl mb-3">Visit</h2>
@@ -149,14 +121,9 @@ function ContactPage() {
             <p className="mt-4 text-xs uppercase tracking-[0.24em] text-gold group-hover:tracking-[0.28em] transition-all">
               Open in Google Maps
             </p>
-          </motion.a>
+          </a>
 
-          <motion.div
-            variants={fadeUp}
-            whileHover={{ y: -6 }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            className="footer-panel p-10"
-          >
+          <div className="footer-panel p-10 transition-transform duration-300 hover:-translate-y-1.5">
             <Clock className="text-gold mb-6" size={28} strokeWidth={1.2} />
             <h2 className="font-display text-2xl mb-3">Hours</h2>
             <div className="gold-divider mb-4" />
@@ -174,16 +141,10 @@ function ContactPage() {
                 <span className="text-gold/80">Closed</span>
               </li>
             </ul>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="footer-panel max-w-3xl mx-auto mt-16 text-center p-10"
-        >
+        <div className="footer-panel max-w-3xl mx-auto mt-16 text-center p-10">
           <h3 className="font-display text-3xl mb-3">
             Walk in. Sit down. <span className="gradient-gold-text italic">Walk out sharp.</span>
           </h3>
@@ -191,7 +152,7 @@ function ContactPage() {
             We keep things simple at Sam's Cuts. Walk in when it suits you, or call ahead to
             pre-book over phone for an extra £5.
           </p>
-        </motion.div>
+        </div>
       </section>
     </Layout>
   );

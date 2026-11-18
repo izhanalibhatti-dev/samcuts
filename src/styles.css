@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap");
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
@@ -159,6 +158,7 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     font-feature-settings: "ss01", "cv11";
+    overflow-x: hidden;
   }
 
   ::selection {
@@ -227,7 +227,6 @@
     box-shadow: var(--shadow-soft);
     transition:
       border-color 220ms ease,
-      box-shadow 220ms ease,
       transform 220ms ease;
   }
   .premium-panel::before {
@@ -244,9 +243,6 @@
   }
   .premium-panel:hover {
     border-color: color-mix(in oklab, var(--gold) 34%, var(--border));
-    box-shadow:
-      var(--shadow-soft),
-      0 18px 54px -34px color-mix(in oklab, var(--gold) 62%, transparent);
   }
   .premium-grid {
     background-image:
@@ -487,13 +483,7 @@
     position: relative;
   }
   .grain::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0.04;
-    mix-blend-mode: overlay;
-    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    content: none;
   }
   .gold-divider {
     height: 1px;
@@ -521,6 +511,29 @@
     color: var(--gold);
     text-decoration: underline;
     text-underline-offset: 4px;
+  }
+}
+
+@supports (content-visibility: auto) {
+  main > section,
+  footer {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 720px;
+  }
+
+  main > section:first-child {
+    content-visibility: visible;
+  }
+}
+
+@media (prefers-reduced-motion: reduce), (max-width: 767px) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
   }
 }
 

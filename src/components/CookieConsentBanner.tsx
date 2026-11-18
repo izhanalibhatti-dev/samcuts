@@ -29,7 +29,7 @@ export function CookieConsentBanner() {
   if (choice || pathname === "/cookie-settings") return null;
 
   return (
-    <div className="fixed inset-x-4 bottom-4 z-[60] mx-auto max-w-5xl border border-gold/25 bg-background/96 p-4 shadow-soft backdrop-blur-xl sm:p-5">
+    <div className="fixed inset-x-4 bottom-4 z-[60] mx-auto max-w-5xl border border-gold/25 bg-background p-4 shadow-soft sm:p-5">
       <div className="grid gap-4 lg:grid-cols-[1fr_auto] lg:items-center">
         <div className="flex gap-4">
           <span className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center border border-gold/30 bg-gold/10 text-gold">

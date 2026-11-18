@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { motion, type Variants } from "framer-motion";
 import { Layout } from "@/components/Layout";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ConsentRequiredPanel } from "@/components/ConsentRequiredPanel";
@@ -89,16 +88,6 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const } },
-};
-
-const stagger: Variants = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.12 } },
-};
-
 const servicePreview = [
   {
     t: "Normal Fades",
@@ -180,44 +169,36 @@ function HomePage() {
       <section className="relative overflow-hidden border-b border-border bg-background grain">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,color-mix(in_oklab,var(--gold)_11%,transparent),transparent_30%),radial-gradient(circle_at_82%_10%,color-mix(in_oklab,var(--charcoal)_18%,transparent),transparent_34%)]" />
         <div className="relative mx-auto grid min-h-[calc(100vh-5rem)] max-w-7xl items-center gap-12 px-6 py-20 lg:grid-cols-[0.92fr_1.08fr] lg:px-10 lg:py-24">
-          <motion.div variants={stagger} initial="hidden" animate="show" className="max-w-3xl">
-            <motion.div variants={fadeUp} className="mb-6 flex items-center gap-4">
+          <div className="max-w-3xl">
+            <div className="mb-6 flex items-center gap-4">
               <span className="h-px w-16 bg-gradient-to-r from-gold to-transparent" />
               <span className="text-[10px] uppercase tracking-[0.42em] text-gold">
                 Established 2024 · Burnley
               </span>
-            </motion.div>
+            </div>
 
-            <motion.h1
-              variants={fadeUp}
-              className="text-balance font-display text-6xl leading-[0.92] md:text-7xl lg:text-[5.6rem]"
-            >
+            <h1 className="text-balance font-display text-6xl leading-[0.92] md:text-7xl lg:text-[5.6rem]">
               Premium cuts,
               <br />
               proper service,
               <br />
               <span className="gradient-gold-text italic">right in Burnley.</span>
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              variants={fadeUp}
-              className="mt-7 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg"
-            >
+            <p className="mt-7 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
               Sharp fades, clean beard work, and a calm shop experience with proper attention to the
               final finish.
-            </motion.p>
+            </p>
 
-            <motion.div variants={fadeUp} className="mt-8 flex flex-wrap gap-4">
-              <motion.a
-                whileHover={{ scale: 1.04 }}
-                whileTap={{ scale: 0.97 }}
+            <div className="mt-8 flex flex-wrap gap-4">
+              <a
                 href="tel:+447413536353"
-                className="group inline-flex items-center gap-3 rounded-full bg-gold px-8 py-4 text-xs font-medium uppercase tracking-[0.25em] text-background shadow-gold transition-colors hover:bg-gold-bright"
+                className="transition group inline-flex items-center gap-3 rounded-full bg-gold px-8 py-4 text-xs font-medium uppercase tracking-[0.25em] text-background shadow-gold hover:bg-gold-bright duration-200 hover:scale-[1.04] active:scale-[0.97]"
               >
                 Call To Book
                 <Phone size={16} />
-              </motion.a>
-              <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
+              </a>
+              <div className="transition-transform duration-200 hover:scale-[1.04] active:scale-[0.97]">
                 <a
                   href="#location"
                   className="inline-flex items-center gap-3 rounded-full border border-gold/80 bg-background/55 px-8 py-4 text-xs uppercase tracking-[0.25em] text-gold transition-colors hover:bg-gold hover:text-background"
@@ -225,13 +206,10 @@ function HomePage() {
                   Walk In Today
                   <ArrowRight size={14} />
                 </a>
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
 
-            <motion.div
-              variants={fadeUp}
-              className="mt-10 grid max-w-2xl grid-cols-3 divide-x divide-border border-y border-border/80 bg-background/55 backdrop-blur"
-            >
+            <div className="mt-10 grid max-w-2xl grid-cols-3 divide-x divide-border border-y border-border/80 bg-background/55 backdrop-blur">
               {[
                 { k: "Tue - Fri", v: "9-6" },
                 { k: "Saturday", v: "9-5" },
@@ -246,15 +224,10 @@ function HomePage() {
                   </div>
                 </div>
               ))}
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 40, scale: 0.98 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] as const }}
-            className="relative"
-          >
+          <div className="relative">
             <figure className="photo-depth relative min-h-[520px] overflow-hidden border border-gold/20 bg-card shadow-soft lg:min-h-[680px]">
               <img
                 src={homeImages.hero.src}
@@ -262,7 +235,7 @@ function HomePage() {
                 className="absolute inset-0 h-full w-full object-cover"
                 fetchPriority="high"
               />
-              <div className="absolute left-5 top-5 z-10 border border-gold/25 bg-background/86 px-5 py-4 backdrop-blur md:left-8 md:top-8">
+              <div className="absolute left-5 top-5 z-10 border border-gold/25 bg-background/90 px-5 py-4 md:left-8 md:top-8">
                 <div className="text-[10px] uppercase tracking-[0.34em] text-gold">House Style</div>
                 <p className="mt-3 font-display text-2xl leading-[1.08] text-foreground md:text-3xl">
                   Clean lines.
@@ -272,7 +245,7 @@ function HomePage() {
                   No rushed finish.
                 </p>
               </div>
-              <figcaption className="absolute bottom-5 left-5 right-5 z-10 border border-border/80 bg-background/82 px-5 py-4 backdrop-blur md:bottom-8 md:left-8 md:right-8">
+              <figcaption className="absolute bottom-5 left-5 right-5 z-10 border border-border/80 bg-background/88 px-5 py-4 md:bottom-8 md:left-8 md:right-8">
                 <div className="flex flex-wrap gap-3 text-[10px] uppercase tracking-[0.28em] text-gold">
                   <span>Walk-ins welcome</span>
                   <span className="text-muted-foreground">/</span>
@@ -282,7 +255,7 @@ function HomePage() {
                 </div>
               </figcaption>
             </figure>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -345,39 +318,22 @@ function HomePage() {
       {/* ABOUT */}
       <section className="section-orbit py-28 px-6 lg:px-10">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-[1.1fr_0.9fr] gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] as const }}
-            className="relative"
-          >
+          <div className="relative">
             <HomeImageFrame
               src={homeImages.about.src}
               alt={homeImages.about.alt}
               label="Fresh Work"
               className="h-[520px] w-full"
             />
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              className="absolute -bottom-6 -right-6 hidden md:block premium-panel px-6 py-6 max-w-[220px]"
-            >
+            <div className="absolute -bottom-6 -right-6 hidden md:block premium-panel px-6 py-6 max-w-[220px]">
               <div className="font-display text-3xl text-gold">Est. 2024</div>
               <div className="text-xs text-muted-foreground mt-1 uppercase tracking-[0.2em]">
                 Trusted in Burnley
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] as const }}
-          >
+          <div>
             <SectionHeading
               eyebrow="About"
               title={
@@ -438,19 +394,14 @@ function HomePage() {
             >
               Our Story <ArrowRight size={14} />
             </Link>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* SERVICES preview */}
       <section className="section-orbit py-28 px-6 lg:px-10 bg-charcoal/30 grain relative">
         <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
+          <div>
             <SectionHeading
               eyebrow="Craft"
               title={
@@ -463,22 +414,13 @@ function HomePage() {
               From skin fades and normal fades to beard work, shaves, colouring, threading and
               facials. Every service is finished with the same standard of care.
             </SectionHeading>
-          </motion.div>
+          </div>
 
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-80px" }}
-            className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16"
-          >
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
             {servicePreview.map((s, index) => (
-              <motion.div
+              <div
                 key={s.t}
-                variants={fadeUp}
-                whileHover={{ y: -8 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className={`group premium-panel relative p-8 hover:border-gold transition-colors ${
+                className={`transition-transform duration-300 hover:-translate-y-2 group premium-panel relative p-8 hover:border-gold transition-colors ${
                   index === 0 || index === 3 ? "lg:col-span-2" : ""
                 }`}
               >
@@ -491,9 +433,9 @@ function HomePage() {
                 <h3 className="font-display text-2xl mb-3">{s.t}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{s.d}</p>
                 <div className="absolute top-0 left-0 h-px w-0 bg-gold group-hover:w-full transition-all duration-500" />
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
 
           <div className="text-center mt-14">
             <Link
@@ -509,12 +451,7 @@ function HomePage() {
       {/* WHY US */}
       <section className="section-orbit py-28 px-6 lg:px-10">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
+          <div>
             <SectionHeading
               eyebrow="Why Sam's Cuts"
               title={
@@ -524,13 +461,7 @@ function HomePage() {
                 </>
               }
             />
-            <motion.ul
-              variants={stagger}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              className="mt-10 space-y-5 premium-panel px-8 py-8"
-            >
+            <ul className="mt-10 space-y-5 premium-panel px-8 py-8">
               {[
                 "Experienced barbers with a steady hand",
                 "Consistent results, visit after visit",
@@ -538,55 +469,38 @@ function HomePage() {
                 "Obsessive attention to detail",
                 "Trusted by clients across Burnley",
               ].map((p, i) => (
-                <motion.li key={p} variants={fadeUp} className="flex items-start gap-5 group">
+                <li key={p} className="flex items-start gap-5 group">
                   <span className="font-display text-gold text-sm mt-1 w-6">0{i + 1}</span>
                   <span className="flex-1 border-b border-border pb-5 group-last:border-0 text-foreground">
                     {p}
                   </span>
-                </motion.li>
+                </li>
               ))}
-            </motion.ul>
-            <motion.div
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              className="pole-badge mt-6 pl-10 pr-8 py-8"
-            >
+            </ul>
+            <div className="pole-badge mt-6 pl-10 pr-8 py-8">
               <div className="text-[10px] uppercase tracking-[0.38em] text-gold">House View</div>
               <p className="editorial-quote mt-5 font-display text-3xl leading-[1.12] text-foreground">
                 If it does not leave the chair looking sharp from every angle, it is not finished.
               </p>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
           <div className="grid grid-cols-2 gap-4">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
+            <div>
               <HomeImageFrame
                 src={homeImages.detailOne.src}
                 alt={homeImages.detailOne.alt}
                 label="Fade Detail"
                 className="h-72 w-full"
               />
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.15 }}
-              className="mt-10"
-            >
+            </div>
+            <div className="mt-10">
               <HomeImageFrame
                 src={homeImages.detailTwo.src}
                 alt={homeImages.detailTwo.alt}
                 label="Finished Cut"
                 className="h-72 w-full"
               />
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -594,13 +508,7 @@ function HomePage() {
       {/* REVIEWS */}
       <section className="section-orbit overflow-hidden px-6 py-28 lg:px-10">
         <div className="mx-auto max-w-7xl">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="grid items-end gap-8 lg:grid-cols-[0.95fr_1.05fr]"
-          >
+          <div className="grid items-end gap-8 lg:grid-cols-[0.95fr_1.05fr]">
             <SectionHeading
               eyebrow="Google Reviews"
               title={
@@ -636,35 +544,24 @@ function HomePage() {
                   </div>
                 </div>
 
-                <motion.a
-                  whileHover={{ scale: 1.04 }}
-                  whileTap={{ scale: 0.97 }}
+                <a
                   href={googleMapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex shrink-0 items-center justify-center gap-3 rounded-full bg-gold px-6 py-4 text-[10px] font-medium uppercase tracking-[0.22em] text-background shadow-gold transition-colors hover:bg-gold-bright"
+                  className="transition inline-flex shrink-0 items-center justify-center gap-3 rounded-full bg-gold px-6 py-4 text-[10px] font-medium uppercase tracking-[0.22em] text-background shadow-gold hover:bg-gold-bright duration-200 hover:scale-[1.04] active:scale-[0.97]"
                 >
                   Write A Google Review
                   <ExternalLink size={14} />
-                </motion.a>
+                </a>
               </div>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-80px" }}
-            className="mt-10 grid gap-5 md:grid-cols-3"
-          >
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
             {googleReviews.map((review) => (
-              <motion.article
+              <article
                 key={review.name}
-                variants={fadeUp}
-                whileHover={{ y: -6 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="premium-panel p-7"
+                className="premium-panel p-7 transition-transform duration-300 hover:-translate-y-1.5"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex items-center gap-4">
@@ -689,9 +586,9 @@ function HomePage() {
                 <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
                   &ldquo;{review.text}&rdquo;
                 </p>
-              </motion.article>
+              </article>
             ))}
-          </motion.div>
+          </div>
 
           <div className="mt-8 grid gap-4 lg:grid-cols-[0.72fr_1.28fr]">
             <div className="pole-badge pl-9 pr-7 py-7">
@@ -728,14 +625,8 @@ function HomePage() {
             professional barbering.
           </SectionHeading>
 
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-80px" }}
-            className="grid lg:grid-cols-3 gap-6 mt-16"
-          >
-            <motion.div variants={fadeUp} className="premium-panel p-8">
+          <div className="grid lg:grid-cols-3 gap-6 mt-16">
+            <div className="premium-panel p-8">
               <MapPin className="text-gold mb-4" size={24} />
               <h3 className="font-display text-xl mb-2">Address</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
@@ -745,8 +636,8 @@ function HomePage() {
                 <br />
                 BB10 1DZ
               </p>
-            </motion.div>
-            <motion.div variants={fadeUp} className="premium-panel p-8">
+            </div>
+            <div className="premium-panel p-8">
               <Scissors className="text-gold mb-4" size={24} />
               <h3 className="font-display text-xl mb-2">Hours</h3>
               <ul className="text-sm text-muted-foreground space-y-1.5">
@@ -763,26 +654,20 @@ function HomePage() {
                   <span className="text-gold/80">Closed</span>
                 </li>
               </ul>
-            </motion.div>
-            <motion.div variants={fadeUp} className="premium-panel p-8">
+            </div>
+            <div className="premium-panel p-8">
               <Sparkles className="text-gold mb-4" size={24} />
               <h3 className="font-display text-xl mb-2">Walk-Ins & Bookings</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Walk in any time, or call ahead to pre-book over phone for an extra £5.
               </p>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.9 }}
-            className="mt-10 overflow-hidden border border-gold/20 bg-background shadow-soft"
-          >
+          <div className="mt-10 overflow-hidden border border-gold/20 bg-background shadow-soft">
             <div className="relative min-h-[460px]">
               <ConsentAwareMap />
-              <div className="absolute left-5 top-5 max-w-sm border border-gold/25 bg-background/90 px-6 py-5 shadow-soft backdrop-blur-md md:left-8 md:top-8">
+              <div className="absolute left-5 top-5 max-w-sm border border-gold/25 bg-background/94 px-6 py-5 shadow-soft md:left-8 md:top-8">
                 <div className="flex items-center gap-3">
                   <span className="flex h-10 w-10 items-center justify-center border border-gold/35 bg-gold/10 text-gold">
                     <MapPin size={18} />
@@ -813,14 +698,14 @@ function HomePage() {
                   href="https://www.google.com/maps/dir/?api=1&destination=Sam%27s%20Cuts%2C%20286%20Colne%20Rd%2C%20Burnley%20BB10%201DZ"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 border border-gold/80 bg-background/80 px-5 py-3 text-[10px] uppercase tracking-[0.22em] text-gold backdrop-blur transition-colors hover:bg-gold hover:text-background"
+                  className="inline-flex items-center gap-3 border border-gold/80 bg-background/90 px-5 py-3 text-[10px] uppercase tracking-[0.22em] text-gold transition-colors hover:bg-gold hover:text-background"
                 >
                   Directions
                   <MapPin size={14} />
                 </a>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           <div className="mt-8 grid gap-4 lg:grid-cols-[1.3fr_0.7fr]">
             <div className="premium-panel px-8 py-8">
@@ -902,7 +787,7 @@ function ConsentAwareMap() {
         loading="lazy"
         allowFullScreen
         referrerPolicy="no-referrer-when-downgrade"
-        className="absolute inset-0 h-full w-full"
+        className="absolute inset-0 h-full w-full pointer-events-none"
         style={{ border: 0, filter: "saturate(0.85) contrast(1.08) brightness(0.88)" }}
       />
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,var(--background)_0%,color-mix(in_oklab,var(--background)_75%,transparent)_28%,transparent_62%),linear-gradient(0deg,var(--background)_0%,transparent_34%)]" />
